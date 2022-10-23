@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Console Tricks!</title>
+</head>
+<style>
+    h1 {
+        animation: color-change 1s infinite;
+        margin-left: 25%;
+    }
+    
+    @keyframes color-change {
+        0% {
+            color: red;
+        }
+        20% {
+            color: greenyellow;
+        }
+        40% {
+            color: blueviolet;
+        }
+        60% {
+            color: yellow;
+        }
+        80% {
+            color: indianred;
+        }
+        100% {
+            color: fuchsia;
+        }
+    }
+    
+    .list {
+        background-color: yellow;
+        width: 80vw;
+        height: 80vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto;
+    }
+    
+    .list1 {
+        height: 50vh;
+        width: 40vw;
+        font-size: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        color: blue;
+    }
+    
+    .list2 {
+        height: 50vh;
+        width: 40vw;
+        font-size: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        color: blue;
+    }
+    
+    .list ul li:hover {
+        color: red;
+        cursor: pointer;
+    }
+</style>
+
+<body>
+
+    <p onClick="makeGreen()">×Click×Me</p>
+    <h1>JavaScript DEV TOOLS DOMINATION</h1>
+    <div class="list">
+        <div class="list1">
+            <ul>
+                <li>Regular</li>
+                <li>Interpolated</li>
+                <li>Styled</li>
+                <li>warning!</li>
+                <li>Error</li>
+                <li>Info</li>
+            </ul>
+        </div>
+        <div class="list2">
+            <ul>
+                <li>Testing</li>
+                <li>clearing</li>
+                <li>Viewing DOM Elements</li>
+                <li>Grouping together</li>
+                <li>counting</li>
+                <li>Timing</li>
+            </ul>
+
+        </div>
+    </div>
+    </div>
+
+
+    <script>
+        const dogs = [{
+            name: 'Snickers',
+            age: 2
+        }, {
+            name: 'hugo',
+            age: 8
+        }];
+
+        function makeGreen() {
+            const p = document.querySelector('p');
+            p.style.color = '#BADA55';
+            p.style.fontSize = '50px';
+        }
+
+        // Regular
+        console.log('hello');
+
+        // Interpolated
+        console.log('Hello I am a %s string!', '💩');
+
+        // Styled
+        // console.log('%c I am some great text', 'font-size:50px; background:red; text-shadow: 10px 10px 0 blue')
+
+        // warning!
+        console.warn('OH NOOO');
+
+        // Error :|
+        console.error('Shit!');
+
+        // Info
+        console.info('Crocodiles eat 3-4 people per year');
+
+        // Testing
+        const p = document.querySelector('p');
+
+        console.assert(p.classList.contains('ouch'), 'That is wrong!');
+
+        // clearing
+        console.clear();
+
+        // Viewing DOM Elements
+        console.log(p);
+        console.dir(p);
+
+        console.clear();
+
+        // Grouping together
+        dogs.forEach(dog => {
+            console.groupCollapsed(`${dog.name}`);
+            console.log(`This is ${dog.name}`);
+            console.log(`${dog.name} is ${dog.age} years old`);
+            console.log(`${dog.name} is ${dog.age * 7} dog years old`);
+            console.groupEnd(`${dog.name}`);
+        });
+
+        // counting
+
+        console.count('Muhammad Mamoon');
+        console.count('PIAIC');
+        console.count('Muhammad Mehmood');
+        console.count('PIAIC');
+        console.count('Furqan');
+        console.count('Ahmed');
+        console.count('PIAIC');
+        console.count('Mamoon');
+        console.count('JavaScript');
+        console.count('JavaScript');
+        console.count('Blockchain');
+        console.count('Blockchain');
+
+
+        // timing
+        console.time('fetching data');
+        fetch('https://api.github.com/users/wesbos')
+            .then(data => data.json())
+            .then(data => {
+                console.timeEnd('fetching data');
+                console.log(data);
+            });
+
+        console.table(dogs);
+    </script>
+</body>
+
+</html>
